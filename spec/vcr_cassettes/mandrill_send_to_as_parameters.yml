@@ -5,8 +5,8 @@ http_interactions:
     uri: https://mandrillapp.com/api/1.0/messages/send-template.json
     body:
       encoding: UTF-8
-      string: '{"key":"abc123","template_name":"order_confirmation","message":{"from_email":"spree@example.com","from_name":"spree@example.com","to":[{"email":"spree@example.com"},{"email":"
-        wombat@example.com"}],"bcc_address":"","subject":"Order R123456 was shipped!","global_merge_vars":[{"name":"customer.name","content":"John
+      string: '{"key":"KqE5SjhclKAoTmUu5vV3nA","template_name":"order_confirmation","message":{"from_email":"spree@example.com","from_name":"spree@example.com","to":[{"email":"spree@example.com"},{"email":"alessio.rocco.lt@gmail.com","type":"cc"}],"bcc_address":"","subject":"Order
+        R123456 was shipped!","global_merge_vars":[{"name":"customer.name","content":"John
         Smith"},{"name":"order.total","content":"100.00"},{"name":"order.tracking","content":"XYZ123"}]},"template_content":[{"name":"User
         1","content":"Content 1"}]}'
     headers:
@@ -20,7 +20,7 @@ http_interactions:
       Server:
       - nginx/1.6.0
       Date:
-      - Tue, 09 Sep 2014 12:39:10 GMT
+      - Tue, 09 Sep 2014 15:26:19 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,7 +39,7 @@ http_interactions:
       - 'false'
     body:
       encoding: UTF-8
-      string: '[{"email":"spree@example.com","status":"sent","_id":"71ab00ef313247fe81ffdba0e2f999c8","reject_reason":null},{"email":"wombat@example.com","status":"sent","_id":"170c6de9f1f04481bb42b60b7ba1e967","reject_reason":null}]'
+      string: '[{"email":"spree@example.com","status":"sent","_id":"ee94cc709a4a4975aa861c6ab5b81580","reject_reason":null},{"email":"alessio.rocco.lt@gmail.com","status":"sent","_id":"d73f8e13bdc14209b17e60420e550b28","reject_reason":null}]'
     http_version: 
-  recorded_at: Tue, 09 Sep 2014 12:39:10 GMT
+  recorded_at: Tue, 09 Sep 2014 15:26:19 GMT
 recorded_with: VCR 2.4.0

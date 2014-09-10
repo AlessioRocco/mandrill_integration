@@ -8,6 +8,16 @@ class MandrillEndpoint < EndpointBase::Sinatra::Base
     config.environment_name = ENV['RACK_ENV']
   end
 
+  helpers do
+    def to_addr
+      if @payload['email']['to'].is_a?(Array)
+        @payload['email']['to']
+      else
+        @payload['email']['to'].to_s.split(',').map{|email| { email: email }}
+      end
+    end
+  end
+
   post '/send_email' do
     # convert variables into Mandrill array / hash format.
     #
@@ -21,7 +31,6 @@ class MandrillEndpoint < EndpointBase::Sinatra::Base
     end
 
     template = @payload['email']['template']
-    to_addr = @payload['email']['to']
     from_addr = @payload['email']['sender_email'] || @payload['email']['from']
     from_name = @payload['email']['sender_name'] || from_addr
     subject = @payload['email']['subject']
@@ -35,7 +44,7 @@ class MandrillEndpoint < EndpointBase::Sinatra::Base
       message: {
         from_email: from_addr,
         from_name: from_name,
-        to: to_addr.to_s.split(',').map{|email| { email: email }},
+        to: to_addr,
         bcc_address: bcc_address,
         subject: subject,
         global_merge_vars: global_merge_vars
@@ -68,5 +77,4 @@ class MandrillEndpoint < EndpointBase::Sinatra::Base
       process_result 500
     end
   end
-
 end
